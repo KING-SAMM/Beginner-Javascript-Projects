@@ -1,4 +1,3 @@
-
 function displayTime() {
     // Get hours, minutes and seconds from the Date() object and store them in variables
     const date = new Date();
