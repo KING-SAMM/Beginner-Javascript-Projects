@@ -1,7 +1,9 @@
+import Dashboard from "./views/Dashboard.js";
+
 // Application Routes 
 const router = async () => {
     const routes = [
-        { path: "/", view: () => { console.log("Viewing dashboard") }},
+        { path: "/", view: Dashboard },
         { path: "/posts", view: () => { console.log("Viewing posts") }},
         { path: "/settings", view: () => { console.log("Viewing settings") }}
     ]
@@ -24,6 +26,9 @@ const router = async () => {
             route: routes[0]
         }
     }
+
+    const view = new match.route.view();
+    document.querySelector("#app").innerHTML = await view.getHTML();
 
     console.log(match.route.view());
 }
