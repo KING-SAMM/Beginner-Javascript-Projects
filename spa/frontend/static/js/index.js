@@ -1,11 +1,13 @@
 import Dashboard from "./views/Dashboard.js";
+import Posts from "./views/Posts.js";
+import Settings from "./views/Settings.js";
 
 // Application Routes 
 const router = async () => {
     const routes = [
         { path: "/", view: Dashboard },
-        { path: "/posts", view: () => { console.log("Viewing posts") }},
-        { path: "/settings", view: () => { console.log("Viewing settings") }}
+        { path: "/posts", view: Posts},
+        { path: "/settings", view: Settings}
     ]
 
     // test each route for potentia match
@@ -30,7 +32,7 @@ const router = async () => {
     const view = new match.route.view();
     document.querySelector("#app").innerHTML = await view.getHTML();
 
-    console.log(match.route.view());
+    console.log(new match.route.view());
 }
 
 // Control navigation using the history API
