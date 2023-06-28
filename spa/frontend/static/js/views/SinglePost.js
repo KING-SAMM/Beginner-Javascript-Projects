@@ -1,14 +1,14 @@
 import AbsatrctView from './AbstractView.js';
 
-export default class Settings extends AbsatrctView {
+export default class Posts extends AbsatrctView {
     constructor(params) {
         super(params);
-        this.setTitle("Settings");
+        this.setTitle(`Post ${this.params.id}`);
     }
 
     async getHTML() {
         return `
-            <h1>Settings</h1>
+            <h1>Single Post ${this.params.id}</h1>
             <section>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ex recusandae sequi eligendi possimus? Illo fuga laudantium iusto quis iste.
@@ -18,7 +18,7 @@ export default class Settings extends AbsatrctView {
                 </p>
             </section>
             <p>
-                <a href="/posts" data-link>View recent posts</a>
+                
             </p>
         `;
     }

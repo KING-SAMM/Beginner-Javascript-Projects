@@ -1,8 +1,8 @@
 import AbsatrctView from './AbstractView.js';
 
 export default class Dashboard extends AbsatrctView {
-    constructor() {
-        super();
+    constructor(params) {
+        super(params);
         this.setTitle("Dashboard");
     }
 
@@ -21,6 +21,6 @@ export default class Dashboard extends AbsatrctView {
                 <a href="/posts" data-link>View recent posts</a>
             </p>
         `;
-    }
+    }params
 }
 

@@ -48,3 +48,18 @@ section p
 {
     margin: 10px 0;
 }
+
+ul
+{
+    padding: 0;
+}
+
+a, li a
+{
+    text-decoration: none;
+}
+
+li
+{
+    list-style: none;
+}
