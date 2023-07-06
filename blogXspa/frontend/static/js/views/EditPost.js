@@ -71,8 +71,6 @@ export default class EditPost extends AbsatrctView {
                 function respond() {
                     if (request.readyState == 4 && request.status == 200) {
                         const resp = JSON.parse(request.response);
-                        // console.log(resp.message);
-                        // console.log(resp.error);
         
                         if(!resp.error)
                         {
@@ -129,10 +127,7 @@ export default class EditPost extends AbsatrctView {
         <h1>Edit ${singlePost.title}</h1>
         <section>
         <div class="container mt-4 px-5">
-
             <div class="info">
-                <span id="msg-success" class="text-info"></span>
-                <span id="msg-error" class="text-danger"></span>
                 <form id="edit-form" class="edit-form w-75">
                     <div class="form-group mt-2">
                         <!--<label for="id">ID</label> -->
@@ -164,10 +159,6 @@ export default class EditPost extends AbsatrctView {
                         <button type="submit" id="submit" name="submit" class="btn btn-primary form-control">Update</button>
                     </div>
                 </form>
-                <!--<<div class="results">
-                    <h2 class="results__heading">Form Data</h2>
-                    <pre class="results__display-wrapper"><code class="results__display"></code></pre>
-                </div>>-->
             </div>
         </div>
         </section>
