@@ -1,26 +1,34 @@
 import AbsatrctView from './AbstractView.js';
 
-export default class Posts extends AbsatrctView {
+export default class SinglePost extends AbsatrctView {
     constructor(params) {
         super(params);
         this.setTitle(`Post ${this.params.id}`);
     }
 
     async getHTML() {
+        const posts = await this.getData();
+        if (typeof(posts) === 'string' || typeof(posts) === null) {
+            return `
+                <h1>Oops!</h1>
+                <section>
+                    <h2>404</h2>
+                    <p>Something went wrong</p>
+                </section>
+            `;
+        }
+
+        const singlePost = posts.find(post => post.id == this.params.id)
+
         return `
-            <h1>Single Post ${this.params.id}</h1>
+            <h1> ${singlePost.title}</h1>
             <section>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ex recusandae sequi eligendi possimus? Illo fuga laudantium iusto quis iste.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium nostrum totam expedita perferendis dolorem esse accusantium placeat exercitationem dolores rem, laborum atque vero voluptatem aliquid voluptate labore consequatur earum?
+                    ${singlePost.body}
                 </p>
             </section>
-            <p>
-                
-            </p>
         `;
     }
 }
+
 

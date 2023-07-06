@@ -3,6 +3,7 @@ import Posts from "./views/Posts.js";
 import CreatePost from "./views/CreatePost.js";
 import Settings from "./views/Settings.js";
 import SinglePost from "./views/SinglePost.js";
+import EditPost from "./views/EditPost.js";
 
 // Define a regex object to match url with params 
 // e.g a regex object that matches, say, '/posts/:id/'
@@ -31,11 +32,12 @@ const router = async () => {
         { path: "/", view: Dashboard },
         { path: "/posts", view: Posts},
         { path: "/posts/:id", view: SinglePost},
+        { path: "/edit/:id", view: EditPost},
         { path: "/create", view: CreatePost},
         { path: "/settings", view: Settings}
     ]
 
-    // Test each route for potentia match
+    // Test each route for potential match
     const potentialMatches = routes.map(route => {
         return {
             route: route,
@@ -57,7 +59,7 @@ const router = async () => {
     }
 
     const view = new match.route.view(getParams(match));
-    document.querySelector("#app").innerHTML = await view.getHTML();
+    document.querySelector("#app").innerHTML = await view.getHTML();;
 }
 
 // Control navigation using the history API

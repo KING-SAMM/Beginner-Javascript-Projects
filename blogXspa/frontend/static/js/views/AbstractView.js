@@ -13,7 +13,7 @@ export default class {
 
     async getData() {
         try {
-            const response = await fetch("http://localhost:8000/posts/api");
+            const response = await fetch("http://blogx.local/api/post/read.php");
             const posts = await response.json();
             return posts;
         } catch (error) {
