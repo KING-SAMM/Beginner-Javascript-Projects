@@ -68,3 +68,33 @@ li
 {
     list-style: none;
 }
+
+
+/* Modal */
+.modal {
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-title {
+    font-size: 24px;
+}
+
+.modal-body {
+    font-size: 17px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

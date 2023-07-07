@@ -1,4 +1,6 @@
 import AbsatrctView from './AbstractView.js';
+import Modal from '../../helper/modal.js';
+import DeletePost from '../../helper/DeletePost.js';
 
 export default class SinglePost extends AbsatrctView {
     constructor(params) {
@@ -24,17 +26,25 @@ export default class SinglePost extends AbsatrctView {
 
         this.setTitle(singlePost.title);
 
+        setTimeout(() => {
+            Modal();
+            document.getElementById("deletePost")
+                .addEventListener('click', () => {
+                    DeletePost(singlePost.id);
+                });
+        }, 200);
+
         return `
             <h1>${singlePost.title}</h1>
 
             <!-- Delete Modal -->
-            <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+            <div class="modal" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="deleteModalLongTitle">This post will be deleted</h5>
                             <div class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="text-dark">&times;</span>
+                            <span aria-hidden="true" class="close text-dark">&times;</span>
                             </div>
                         </div>
                         <div class="modal-body">
@@ -42,11 +52,12 @@ export default class SinglePost extends AbsatrctView {
                         </div>
                         <div class="modal-footer">
                             <button type="button" id="deletePost" class="btn btn-danger" onclick="deletePost(${singlePost.id})" data-bs-dismiss="modal">OK</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" id="cancelDelete" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Page Content -->
             <section>
@@ -62,7 +73,7 @@ export default class SinglePost extends AbsatrctView {
                             <p style="font-size: 20px;">${singlePost.body}</p>
 
                             <a type="button" id="editPost" name="editPost"  class="btn btn-primary" href="/edit/${singlePost.id}" data-link>Edit</a>
-                            <a type="button" name="delete" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModalCenter">Delete</a>
+                            <a type="button" name="delete" class="btn btn-danger" data-bs-toggle="modal" id="openDeleteModal" data-bs-target="#deleteModalCenter">Delete</a>
                         </div>
                     </div>
                 </div>
