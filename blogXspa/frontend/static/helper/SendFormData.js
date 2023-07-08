@@ -1,5 +1,5 @@
 import AjaxRequestResponse from "./AjaxRequestResponse.mjs";
-import { fromUpdateToSingle } from "./redirect.js";
+import { backToPosts, fromUpdateToSingle } from "./redirect.js";
 
 export default function SendFormData(method, url) {
     /**
@@ -49,7 +49,7 @@ export default function SendFormData(method, url) {
         }
 
         if (method == "POST") {
-
+            backToPosts();
         }
     };
 

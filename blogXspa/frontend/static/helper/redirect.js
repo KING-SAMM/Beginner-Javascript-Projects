@@ -1,7 +1,7 @@
 import Posts from "../js/views/Posts.js";
 import SinglePost from "../js/views/SinglePost.js";
 
-export function fromDeleteToPosts() {
+export function backToPosts() {
     setTimeout(async () => {
         window.history.pushState(null, null, "/posts");
         const posts = new Posts();
