@@ -10,11 +10,6 @@ export default function Modal() {
         deleteModalCenter.style.display = 'block';
     }
 
-    // Function to close the modal
-    function closeModal() {
-        deleteModalCenter.style.display = 'none';
-    }
-
     // Event listeners
     openDeleteModalBtn.addEventListener('click', openModal);
     closeBtn.addEventListener('click', closeModal);
@@ -24,4 +19,10 @@ export default function Modal() {
             closeModal();
         }
     });
+}
+
+
+// Function to close the modal
+export function closeModal() {
+    deleteModalCenter.style.display = 'none';
 }

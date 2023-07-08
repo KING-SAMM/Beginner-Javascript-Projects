@@ -51,7 +51,7 @@ export default class SinglePost extends AbsatrctView {
                             Click OK to delete this post permanently. Note that this action cannot be reversed.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="deletePost" class="btn btn-danger" onclick="deletePost(${singlePost.id})" data-bs-dismiss="modal">OK</button>
+                            <button type="button" id="deletePost" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
                             <button type="button" id="cancelDelete" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>

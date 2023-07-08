@@ -43,7 +43,7 @@ export default class CreatePost extends AbsatrctView {
                             </select>
                         </div>
                         <div class="form-group mt-4 w-25">
-                            <button type="submit" id="submit" name="submit" class="btn btn-primary form-control">Update</button>
+                            <button type="submit" id="submit" name="submit" class="btn btn-primary form-control">Add Post</button>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,5 @@
 import Alert from "./Alert.mjs";
+import SinglePost from "../js/views/SinglePost.js";
 
 export default function AjaxRequestResponse(method, url, data) {
     let json_data = JSON.stringify(data, null, '  ');

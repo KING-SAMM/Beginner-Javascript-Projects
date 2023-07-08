@@ -1,5 +1,7 @@
 import AbsatrctView from './AbstractView.js';
 import SendFormData from '../../helper/SendFormData.js';
+import SinglePost from './SinglePost.js';
+import { fromUpdateToSingle } from '../../helper/redirect.js';
 
 export default class EditPost extends AbsatrctView {
     constructor(params) {
@@ -26,12 +28,14 @@ export default class EditPost extends AbsatrctView {
         this.setTitle(`Edit ${singlePost.title}`);
 
         // Give form time to load
-        setTimeout(() => {
+        setTimeout(async () => {
             // Pre-select the current category
             const category = document.getElementById('category_id');
             category.value = singlePost.category_id;
-
+            
             SendFormData("PUT", "http://blogx.local/api/post/update.php");
+
+            fromUpdateToSingle();
         }, 200);
 
         return `
