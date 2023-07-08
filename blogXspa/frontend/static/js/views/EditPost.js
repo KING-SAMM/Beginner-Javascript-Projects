@@ -1,7 +1,5 @@
 import AbsatrctView from './AbstractView.js';
 import SendFormData from '../../helper/SendFormData.js';
-import SinglePost from './SinglePost.js';
-import { fromUpdateToSingle } from '../../helper/redirect.js';
 
 export default class EditPost extends AbsatrctView {
     constructor(params) {
@@ -35,12 +33,11 @@ export default class EditPost extends AbsatrctView {
             
             SendFormData("PUT", "http://blogx.local/api/post/update.php");
 
-            fromUpdateToSingle();
         }, 200);
 
         return `
         <h1>Edit ${singlePost.title}</h1>
-        <section>
+        <section id="edit-post">
             <div class="container mt-4 px-5">
                 <div class="info">
                     <form id="edit-form" class="form w-75">

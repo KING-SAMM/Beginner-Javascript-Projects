@@ -1,4 +1,5 @@
 import AjaxRequestResponse from "./AjaxRequestResponse.mjs";
+import { fromUpdateToSingle } from "./redirect.js";
 
 export default function SendFormData(method, url) {
     /**
@@ -43,6 +44,13 @@ export default function SendFormData(method, url) {
         const data = formToJSON(form.elements);
 
         AjaxRequestResponse(method, url, data);
+        if (method == "PUT") {
+            fromUpdateToSingle();
+        }
+
+        if (method == "POST") {
+
+        }
     };
 
     const form = document.getElementsByClassName('form')[0];
