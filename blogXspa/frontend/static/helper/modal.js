@@ -5,7 +5,7 @@ export default function Modal() {
     const cancelDeleteBtn = document.getElementById('cancelDelete');
     const closeBtn = document.getElementsByClassName('close')[0];
 
-    // Function to open the modal
+    // Open alert modal
     function openModal() {
         deleteModalCenter.style.display = 'block';
     }
@@ -22,7 +22,7 @@ export default function Modal() {
 }
 
 
-// Function to close the modal
+// Close alert modal
 export function closeModal() {
     deleteModalCenter.style.display = 'none';
 }

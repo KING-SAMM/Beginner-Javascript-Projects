@@ -5,8 +5,8 @@ export default function Alert(message, className) {
     div.appendChild(document.createTextNode(message));
 
     div.style.position = 'fixed';
-    div.style.top = '0';
-    div.style.right = '0';
+    div.style.top = '20px';
+    div.style.right = '20px';
     div.style.zIndex = '999';
 
     document.body.appendChild(div);

@@ -8,7 +8,7 @@ body
 
 #app 
 {
-    margin: 0 0 0 260px;
+    margin: 0 0 0 220px;
     line-height: 1.5;
 }
 
@@ -19,16 +19,16 @@ body
     top: 0;
     left: 0;
     bottom: 0;
-    width: 260px;
-    background: #000;
-    color: #fff;
+    width: 220px;
+    background: #001423;
+    color: #467398;
 }
 
 .nav__link
 {
     display: block;
     padding: 12px 18px;
-    color: #eee;
+    color: #84a4be;
     text-decoration: none;
 }
 
@@ -38,6 +38,9 @@ h1, p
     margin: 30px;
 }
 
+h1 {
+    color: #003a66;
+}
 
 section 
 {
@@ -48,6 +51,7 @@ section
 section p
 {
     margin: 10px 0;
+    color: #5f5f5f;
 }
 
 ul
@@ -70,10 +74,45 @@ li
 }
 
 
+/* Mobile Navigation  */
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9998;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: right;
+  }
+  
+  .mobile-nav-toggle i {
+    color: #149ddd;
+  }
+  
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+  
+  .mobile-nav-active #header {
+    left: 0;
+  }
+  
+  .mobile-nav-active .mobile-nav-toggle i {
+    color: #fff;
+  }
+  
+
+
 /* Modal */
 .modal {
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 28, 57, 0.6);
 }
 
 .modal-title {

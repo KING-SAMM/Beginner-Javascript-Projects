@@ -1,6 +1,7 @@
 import AbsatrctView from './AbstractView.js';
 import Modal from '../../helper/modal.js';
 import DeletePost from '../../helper/DeletePost.js';
+import { fromSingleToPosts } from '../../helper/redirect.js';
 
 export default class SinglePost extends AbsatrctView {
     constructor(params) {
@@ -9,8 +10,7 @@ export default class SinglePost extends AbsatrctView {
     }
 
     async getHTML() {
-        const result = await this.getData();
-        let posts = result.data;
+        const posts = await this.getData();
 
         if (typeof(posts) === 'string' || typeof(posts) === null) {
             return `
@@ -32,6 +32,13 @@ export default class SinglePost extends AbsatrctView {
                 .addEventListener('click', () => {
                     DeletePost(singlePost.id);
                 });
+        }, 200);
+
+        setTimeout(() => {
+            const singleToPosts = document.getElementById("singleToPosts");
+            singleToPosts.addEventListener("click", () => {
+                fromSingleToPosts();
+            });
         }, 200);
 
         return `
@@ -63,19 +70,19 @@ export default class SinglePost extends AbsatrctView {
             <section>
                 <div class="container">
                     <div class="info">
-                        <span id="del-msg-success" class="text-secondary"></span>
-                        <span id="del-msg-error" class="text-danger"></span>
-                        <div class="p-4">    
-                            <img src="${singlePost.imageUrl}" alt="${singlePost.title}" title="${singlePost.title}"" />
+                        <img src="${singlePost.imageUrl}" alt="${singlePost.title}" title="${singlePost.title}"" />
 
-                            <p style="font-size: 16px;">By: ${singlePost.author} | ${singlePost.category_name}</p>
-                        
-                            <p style="font-size: 20px;">${singlePost.body}</p>
+                        <p style="font-size: 16px;">By: ${singlePost.author} | ${singlePost.category_name}</p>
+                    
+                        <p style="font-size: 20px;">${singlePost.body}</p>
 
-                            <a type="button" id="editPost" name="editPost"  class="btn btn-primary" href="/edit/${singlePost.id}" data-link>Edit</a>
-                            <a type="button" name="delete" class="btn btn-danger" data-bs-toggle="modal" id="openDeleteModal" data-bs-target="#deleteModalCenter">Delete</a>
-                        </div>
+                        <a type="button" id="editPost" name="editPost"  class="btn btn-primary" href="/edit/${singlePost.id}" data-link>Edit</a>
+                        <a type="button" name="delete" class="btn btn-danger" data-bs-toggle="modal" id="openDeleteModal" data-bs-target="#deleteModalCenter">Delete</a>
                     </div>
+                    <a id="singleToPosts" type="button" class="btn btn-light mt-5">
+                        Back
+                    </a>
+                    </a>
                 </div>
             </section>
         `;

@@ -1,7 +1,7 @@
-import AbsatrctView from './AbstractView.js';
+import AbstractView from './AbstractView.js';
 import SendFormData from '../../helper/SendFormData.js';
 
-export default class CreatePost extends AbsatrctView {
+export default class CreatePost extends AbstractView {
     constructor(params) {
         super(params);
         this.setTitle("Add New Post");

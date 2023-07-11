@@ -9,8 +9,7 @@ export default class EditPost extends AbsatrctView {
 
 
     async getHTML() {
-        const result = await this.getData();
-        let posts = result.data;
+        const posts = await this.getData();
         
         if (typeof(posts) === 'string' || typeof(posts) === null) {
             return `
